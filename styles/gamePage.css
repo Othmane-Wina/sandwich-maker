@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Hachi+Maru+Pop');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body{
+    margin: auto;
+    padding: 0;
+    background-color:bisque;
+}
+
+h1{
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 0;
+    background-color: black;
+    font-size: 48px;
+    font-family: 'Hachi Maru Pop';
+    letter-spacing: 2px;
+}
+
+.font-effect-neon{
+    color: #f5e42a;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker{
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #ccbe23,
+        0 0 82px #ccbe23,
+        0 0 92px #ccbe23,
+        0 0 102px #ccbe23,
+        0 0 151px #ccbe23;
+    }
+    20%, 24%, 55%{
+        text-shadow: none;
+    } 
+}
+
+#start-image{
+    display: block;
+    margin: 10px auto 0 auto;
+    max-width: 500px;
+    max-height: 200px;
+}
+.timer{
+    display: block;
+    text-align: center;
+    left: 100px;
+    border: 2px solid black;
+    font-size: 32px;
+}
+
+.sandwich p{
+    /* color: #f5e42a; */
+    font-size: 32px;
+    font-family: 'Hachi Maru Pop';
+    font-weight: 600;
+    text-align: center;
+}
+
+.images-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 7px 10px;
+}
+
+.item img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.item{
+    margin: 0 10px;
+    text-align: center;
+}
+
+button{
+    background-color: peru;
+    padding: 10px;
+    border-style: none;
+    border-radius: 5px;
+    /* font-size: 14px; */
+    font-family: 'Hachi Maru Pop';
+    font-weight: 600;
+    width: 125px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    background-color: rgb(179, 95, 12);
+    /* letter-spacing: 5px; */
+    width: 135px;
+    height: 45px;
+    font-size: 15px;
+}
+
+.build-burger{
+    width: 300px;
+    /* height: 35vh; */
+    margin: 10px auto 0 auto;
+    padding: 25px 0;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+.pan{
+    background-color: rgb(222, 142, 107);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.down.pan{
+    height: 20px;
+    border-radius: 5px 5px 20px 20px;
+}
+
+.upper.pan{
+    height: 25px;
+    border-radius: 80px 80px 5px 5px;
+}
+
+.meat{
+    background-color: rgb(77, 40, 20);
+    height:15px;
+    border-radius: 4px;
+}
+
+.cheese{
+    height:4px;
+    width: 110px;
+    background-color: rgb(225, 225, 0);
+}
+
+.tomato{
+    height:10px;
+    border-radius: 2px;
+    background-color: red;
+}
+
+.lettuce{
+    height: 7px;
+    width: 110px;
+    background-color: rgb(19, 106, 19);
+}
+
+.onion{
+    height: 7px;
+    background-color: rgb(126, 50, 233);
+}
+
+.pickles{
+    height: 5px;
+    width: 40px;
+    background-color: rgb(89, 152, 26);
+}
+
+.sauce{
+    height: 3px;
+    background-color: rgb(177, 78, 36);
+}
+
+.ingredient{
+    width: 100px;
+    margin: 2px auto;
+}
