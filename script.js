@@ -8,6 +8,7 @@ function timer(timeLeft){
         timeLeft-=1
         console.log(timeLeft)
         if(timeLeft < 0){
+            playAudio()
             clearInterval(timerVar)
             document.querySelector('.sandwich').innerHTML = '<div class="timer"></div><div class="start-image"><div class="build-burger"><div class="ingredient upper pan"></div><div class="ingredient down pan"></div></div></div><p id="para">Can you make the same sandwich now ?</p>'
         }
@@ -40,6 +41,15 @@ function add(ing){
     document.querySelector('.start-image').innerHTML = html;
 }
 
+function playAudio(){
+    var aud = document.createElement("AUDIO");
+    if (aud.canPlayType("audio/mpeg")) {
+    aud.setAttribute("src","borgir.mp3");
+    }
+    aud.play()
+
+    document.body.appendChild(aud);
+}
 
 memorize()
     play()
