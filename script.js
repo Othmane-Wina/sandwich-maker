@@ -24,5 +24,22 @@ function play(){
     }, 5001)
 }
 
+let ingredients = []
+
+function add(ing){
+    let html = '';
+    ingredients.push(ing);
+    
+    html += '<div class="build-burger"><div class="ingredient upper pan"></div>';
+
+    for(let i=ingredients.length-1; i>=0;i--){
+    html += `<div class="${ingredients[i]} ingredient"></div>`
+    }
+
+    html += '<div class="ingredient down pan"></div></div>';
+    document.querySelector('.start-image').innerHTML = html;
+}
+
+
 memorize()
     play()
