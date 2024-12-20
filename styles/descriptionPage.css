@@ -15,7 +15,7 @@ body{
     animation: flicker 1.5s infinite alternate;
     text-align: center;
     padding: 30px 0;
-    margin-top: 0;
+    margin: 0 0 10px 0;
     background: linear-gradient(to left, black, rgb(3, 18, 56));
     font-size: 54px;
     font-family: 'Hachi Maru Pop';
@@ -39,27 +39,33 @@ body{
     } 
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 img{
     height: 200px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     border-radius: 10px;
 }
 
-a{
-    text-decoration: none;
-}
-
-.button{
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    flex-direction: column;
-    /* height: 500px; */
+p{
+    color: #f5e42a;
+    background: linear-gradient(to left, black, rgb(3, 18, 56));
+    font-family: "Hachi Maru Pop";
+    font-size: large;
+    font-weight: 900;
+    text-align: justify;
+    padding: 10px;
+    margin: 0 10px;
 }
 
 .to-the-{
     color: #f5e42a;
-    margin-bottom: 20px;
+    margin-top: 10px;
     cursor: pointer;
     width: 100vh;
     height: 50px;
