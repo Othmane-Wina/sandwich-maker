@@ -85,7 +85,7 @@ h1{
     font-weight: 600;
     font-family: 'Hachi Maru Pop';
     background: linear-gradient(to left, black, rgb(3, 18, 56));
-    transition: all 0.8s ease;
+    transition: all 0.1s ease;
     border: 2px solid #f5e42a;
     border-radius: 10px;
     text-shadow: 
@@ -167,9 +167,7 @@ button{
 
 button:hover{
     background-color: rgb(179, 95, 12);
-    width: 135px;
-    height: 45px;
-    font-size: 15px;
+    transform: scale(1.1);
 }
 
 .scrolable{

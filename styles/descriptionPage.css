@@ -15,7 +15,7 @@ body{
 .infinite-scrolling{
     background-image: url('../images/b.jpeg'); 
     height: 3913px; 
-    width: 1500px;
+    width: 100%;
     animation: slide 30s linear infinite;
 }
 
@@ -114,8 +114,7 @@ p{
 .to-the-:hover{
     background: linear-gradient(to right, black, rgb(3, 18, 56));
     letter-spacing: 5px;
-    width: 110vh;
-    height: 65px;
-    font-size: 26px;
+    transform: scale(1.1);
+    /* font-size: 26px; */
     border: 4px solid #f5e42a;
 }
