@@ -4,10 +4,8 @@
 body{
     margin: auto;
     padding: 0;
-    /* background-color:bisque; */
     background-image: url('../images/b.jpeg');
-    /* background-repeat: no-repeat;
-    background-size: cover; */
+    overflow: hidden;
 }
 
 h1{
@@ -51,13 +49,71 @@ h1{
     border-radius: 25px;
 }
 .timer{
-    display: block;
+    --raduis: 30px;
+    width: var(--raduis);
+    height: var(--raduis);
+    display: inline;
+    position: fixed;
     text-align: center;
-    left: 100px;
-    border: 5px solid black;
+    line-height: var(--raduis);
+    padding: 20px;
+    border: 5px solid #f5e42a;
+    border-radius: 50%;
     font-size: 32px;
     font-weight: 900;
-    color: black;
+    color: #f5e42a;
+    background-color: black;
+    text-shadow: 
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #ccbe23,
+    0 0 82px #ccbe23,
+    0 0 92px #ccbe23,
+    0 0 102px #ccbe23,
+    0 0 151px #ccbe23;
+}
+
+.element{
+    position: fixed;
+    color: #f5e42a;
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 200px;
+    height: 60px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Hachi Maru Pop';
+    background: linear-gradient(to left, black, rgb(3, 18, 56));
+    transition: all 0.8s ease;
+    border: 2px solid #f5e42a;
+    border-radius: 10px;
+    text-shadow: 
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #ccbe23,
+    0 0 82px #ccbe23,
+    0 0 92px #ccbe23,
+    0 0 102px #ccbe23,
+    0 0 151px #ccbe23;
+}
+
+.element:hover{
+    background: linear-gradient(to right, black, rgb(3, 18, 56));
+    letter-spacing: 2px;
+    width: 225px;
+    height: 70px;
+    font-size: 18px;
+    /* border: 4px solid #f5e42a; */
+}
+
+.e1{
+    left: 200px;
+}
+
+.e2{
+    right:200px;
 }
 
 .sandwich p{
@@ -67,8 +123,15 @@ h1{
     font-family: 'Hachi Maru Pop';
     font-weight: 700;
     text-align: center;
-    padding: 5px 0px;
+    /* padding: 15px 10px; */
     margin-top: 3vh;
+    position: absolute;
+    display: inline;
+    top: 67%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .images-container{
@@ -85,7 +148,8 @@ h1{
     align-items: center;
     flex-direction: column;
     margin: 0 10px;
-    /* background-color: white; */
+    background-color: white;
+    border-radius: 5px;
 }
 
 button{
@@ -93,7 +157,6 @@ button{
     padding: 10px;
     border-style: none;
     border-radius: 5px;
-    /* font-size: 14px; */
     font-family: 'Hachi Maru Pop';
     font-weight: 600;
     width: 125px;
@@ -104,16 +167,15 @@ button{
 
 button:hover{
     background-color: rgb(179, 95, 12);
-    /* letter-spacing: 5px; */
     width: 135px;
     height: 45px;
     font-size: 15px;
 }
 
 .scrolable{
-    height: 25vh;
+    height: 34vh;
     width: 300px;
-    height: 250px;
+    /* height: 250px; */
     margin: 10px auto 0 auto;
     padding: 25px 0;
     background-color: white;
@@ -170,7 +232,7 @@ button:hover{
 .lettuce{
     height: 7px;
     width: 110px;
-    background-color: rgb(19, 106, 19);
+    background-color: rgb(155, 207, 86);
 }
 
 .onion{
@@ -181,7 +243,7 @@ button:hover{
 .pickles{
     height: 5px;
     width: 40px;
-    background-color: rgb(89, 152, 26);
+    background-color: rgb(118, 152, 26);
 }
 
 .sauce{
@@ -194,14 +256,169 @@ button:hover{
     margin: 2px auto;
 }
 
-.pic.meat{
+.pic{
     margin: 5px auto;
+}
+
+.pic.meat{
+    position: relative;
     background-color: rgb(77, 40, 20);
     border-radius: 50%;
     height: 100px;
     width: 100px;
     box-shadow: -7px 0px rgb(33, 17, 8);
 }
+
+.pic.meat .grill{
+    position: absolute;
+    width: 8px;
+    background-color: rgb(33, 17, 8);
+    border-radius: 45%;
+    top: 50%;
+    translate: -50% -50%;
+}
+
+.pic.meat .grill:nth-child(1){left: 25%; height: 60px;}
+.pic.meat .grill:nth-child(2){left: 50%; height: 80px;}
+.pic.meat .grill:nth-child(3){left: 75%; height: 60px;}
+
+
+.pic.cheese{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background: radial-gradient(circle at center, rgb(249, 244, 145) 20%, rgb(225, 225, 0) 100%);
+    border-radius: 3px;
+}
+
+.pic.cheese .holes{
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.pic.cheese .holes:nth-child(1){top: 25%; left: 14%; width: 15px; height: 15px;}
+.pic.cheese .holes:nth-child(2){top: 15%; left: 70%; width: 23px; height: 23px;}
+.pic.cheese .holes:nth-child(3){top: 65%; left: 22%; width: 19px; height: 19px;}
+.pic.cheese .holes:nth-child(4){top: 74%; left: 63%; width: 10px; height: 10px;}
+.pic.cheese .holes:nth-child(5){top: 36%; left: 49%; width: 14px; height: 14px;}
+
+.pic.tomato{
+    position: relative;
+    width: 100px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgb(252, 138, 118) 10%, tomato 100%);
+    margin: auto;
+}
+
+.pic.tomato .leaf{
+    position: absolute;
+    width: 25px;
+    height: 10px;
+    top: 17%;
+}
+
+.pic.tomato .leaf:nth-child(1){border-radius: 80% 80% 10% 10%; height: 24px; width: 10px;}
+.pic.tomato .leaf:nth-child(2){border-radius: 10% 80% 80% 10%; transform: rotate(-45deg); translate: -20% -50%;}
+.pic.tomato .leaf:nth-child(3){border-radius: 80% 10% 10% 80%; transform: rotate(45deg);translate: -80% -50%;}
+
+.pic.lettuce{
+    position: relative;
+    margin: auto;
+    width: 0;
+    height: 0;
+}
+
+.leaf{
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    background-color: rgb(155, 207, 86);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.pic.lettuce .leaf:nth-child(1){border-radius: 80% 80% 10% 10%; height: 70px; width: 30px;}
+.pic.lettuce .leaf:nth-child(2){border-radius: 10% 80% 80% 10%; transform: rotate(-45deg); translate: -20% -50%;}
+.pic.lettuce .leaf:nth-child(3){border-radius: 80% 10% 10% 80%; transform: rotate(45deg);translate: -80% -50%;}
+
+
+.pic.onion{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgb(142, 68, 149);
+}
+
+.disque{
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.pic.onion .disque:nth-child(1){background-color: rgb(142, 68, 149); height: 90px; width: 90px;}
+.pic.onion .disque:nth-child(2){background-color: rgb(209, 173, 212); height: 80px; width: 80px;}
+.pic.onion .disque:nth-child(3){background-color: rgb(142, 68, 149); height: 70px; width: 70px;}
+.pic.onion .disque:nth-child(4){background-color: rgb(209, 173, 212); height: 60px; width: 60px;}
+.pic.onion .disque:nth-child(5){background-color: rgb(142, 68, 149); height: 50px; width: 50px;}
+.pic.onion .disque:nth-child(6){background-color: rgb(209, 173, 212); height: 40px; width: 40px;}
+.pic.onion .disque:nth-child(7){background-color: rgb(142, 68, 149); height: 30px; width: 30px;}
+.pic.onion .disque:nth-child(8){background-color: rgb(209, 173, 212); height: 20px; width: 20px;}
+
+
+.pic.pickles{
+    position: relative;
+    width: 80px;
+    height: 30px;
+    border-radius: 45%;
+    background-color: rgb(118, 152, 26);
+    margin: auto;
+}
+
+.pic.pickles .acne{
+    position: absolute;
+    background-color: rgb(17, 70, 17);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+}
+
+.pic.pickles .acne:nth-child(1){top: 25%; left: 14%;}
+.pic.pickles .acne:nth-child(2){top: 15%; left: 70%;}
+.pic.pickles .acne:nth-child(3){top: 65%; left: 22%;}
+.pic.pickles .acne:nth-child(4){top: 68%; left: 63%;}
+.pic.pickles .acne:nth-child(5){top: 52%; left: 85%;}
+.pic.pickles .acne:nth-child(6){top: 38%; left: 51%;}
+.pic.pickles .acne:nth-child(7){top: 24%; left: 35%;}
+
+.pic.sauce{
+    position: relative;
+    margin: auto;
+}
+
+.pic.sauce .corner{
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgb(185, 110, 77), rgb(177, 78, 36));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.pic.sauce .corner:nth-child(1){rotate: 15deg;}
+.pic.sauce .corner:nth-child(2){rotate: 45deg;}
+.pic.sauce .corner:nth-child(3){rotate: 62deg;}
+.pic.sauce .corner:nth-child(4){rotate: -13deg;}
+.pic.sauce .corner:nth-child(5){rotate: -38deg;}
+.pic.sauce .corner:nth-child(6){rotate: 89deg;}
+.pic.sauce .corner:nth-child(7){rotate: 112deg;}
 
 .start-image img {
     height: 350px;

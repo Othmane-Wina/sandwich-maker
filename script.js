@@ -5,37 +5,46 @@ function timer(timeLeft, timer1){
     document.querySelector('.start-image').innerHTML = `<img src="images/${random}.jpeg" alt="a tasty burger" id="start-image">`
     let timerVar = setInterval(() => {
         let time=''
-        document.querySelector('.timer').innerHTML = `${timeLeft}`
+        document.querySelectorAll('.timer').forEach(e => {
+            e.innerHTML = `${timeLeft}`
+        })
         timeLeft-=1
-        if(timer1) time+='<div class="timer"></div>'
         if(timeLeft < 0){
             playAudio()
             clearInterval(timerVar)
+            let l = ["meat", "cheese", "tomato", "lettuce", "onion", "pickles", "sauce"]
             if(timer1){
-            time += `
-            <div class="start-image">
-                <div class="scrolable">
-                    <div class="build-burger">
-                        <div class="ingredient upper pan"></div>
-                        <div class="ingredient down pan"></div>
+                time += `
+                    <div class="timer e1"></div>
+                    <div class="timer e2"></div>
+                    <div class="start-image">
+                        <div class="scrolable">
+                            <div class="build-burger">
+                                <div class="ingredient upper pan"></div>
+                                <div class="ingredient down pan"></div>
+                            </div>
+                        </div>    
                     </div>
-                </div>    
-            </div>
-            <p id="para">Can you make the same sandwich now ?</p>`
-            document.querySelector('.sandwich').innerHTML = time;
+                    <p id="para">Can you make the same sandwich ?</p>
+                `
+                document.querySelector('.sandwich').innerHTML = time;
+                for(let i=0;i<l.length;i++){
+                    document.querySelector(`.b${i+1}`).innerHTML = `<button onclick="add('${l[i]}')">add ${l[i]}</button>`
+                }
+            }
+            else{ 
+                result();
+                for(let i=0;i<l.length;i++){
+                    document.querySelector(`.b${i+1}`).innerHTML = `<button>add ${l[i]}</button>`
+                }
             }
         }
     }, 1000)
 }
 
-function memorize(){
-    timer(5, true)
-}
-
-function play(){
-    timerVar = setTimeout(() => {
-        timer(10, false)
-    }, 5000)
+function playAudio(){
+    let borgir = new Audio("./borgir.mp3");
+    borgir.play();
 }
 
 const comparison = {
@@ -60,59 +69,62 @@ const comparison = {
     img19: ["tomato", "lettuce", "meat", "cheese", "onion", "meat", "cheese"],
     img20: ["lettuce", "meat", "cheese", "lettuce", "tomato", "onion", "lettuce"],
 }
-let ingredients = []
 
-function getResult(){
-    console.log(JSON.stringify(ingredients));
-    console.log(JSON.stringify(comparison[`img${random}`]));
-    return JSON.stringify(ingredients) === JSON.stringify(comparison[`img${random}`]) ;        
-}
-
-console.log(comparison.img1)
-
+let ingredients = [];
 
 function add(ing){
     let html = '';
     ingredients.push(ing);
     html+='<div class="scrolable">'
     html += '<div class="build-burger"><div class="ingredient upper pan"></div>';
-
+    
     for(let i=ingredients.length-1; i>=0;i--){
-    html += `<div class="${ingredients[i]} ingredient"></div>`
+        html += `<div class="${ingredients[i]} ingredient"></div>`
     }
-
+    
     html += '<div class="ingredient down pan"></div></div></div>';
     document.querySelector('.start-image').innerHTML = html;
 }
 
-function playAudio(){
-    var aud = document.createElement("AUDIO");
-    if (aud.canPlayType("audio/mpeg")) {
-    aud.setAttribute("src","borgir.mp3");
-    }
-    aud.play()
-    document.body.appendChild(aud);
+function getResult(){
+    console.log(JSON.stringify(ingredients));
+    console.log(JSON.stringify(comparison[`img${random}`]));
+    return JSON.stringify(ingredients) === JSON.stringify(comparison[`img${random}`]);
 }
 
-memorize()
-    play()
-
-setTimeout(() => {
-
+function result() {
+    let html = `
+    <a href="gamePage.html"><button class="element e1">Try Again</button></a>
+    <a href="description.html"><button class="element e2">Description</button></a>
+    `;
     if(getResult()){
-        document.querySelector('.sandwich').innerHTML = `
+        html += `
         <div class="start-image">
-            <img src="images/win.jpeg" alt="sigma hasbula" id="start-image">
+        <img src="images/win.jpeg" alt="sigma hasbula" id="start-image">
         </div>
         <p id="para">You won</p>
         `;
-        }
+    }
     else {
-        document.querySelector('.sandwich').innerHTML = `
+        html += `
         <div class="start-image">
-            <img src="images/lose.jpeg" alt="sad hasbula" id="start-image">
+        <img src="images/lose.jpeg" alt="sad hasbula" id="start-image">
         </div>
         <p id="para">You lost</p>
         `;
     }
-}, 16500)
+    document.querySelector('.sandwich').innerHTML = html;
+}
+
+function memorize(){
+    timer(5, true)
+}
+
+function play(){
+    timerVar = setTimeout(() => {
+        timer(10, false)
+    }, 5000)
+}
+
+memorize()
+play()
